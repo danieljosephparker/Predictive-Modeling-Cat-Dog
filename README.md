@@ -10,7 +10,7 @@
 Wanting Cheng, Mingkai Deng, Jiongjiong Li, Kai Li, Daniel Parker
 
 ### File Structure
-[`doc/main.Rmd`](doc/main.R) is the main file wrapper. It ties together all the project code.
+[`doc/main.Rmd`](doc/main.Rmd) is the main file wrapper. It ties together all the project code.
 
 [`lib/feature.R`](lib/feature.R)/lib/feature.R extracts features from an input image directory.
 
