@@ -20,9 +20,9 @@ Wanting Cheng, Mingkai Deng, Jiongjiong Li, Kai Li, Daniel Parker
 
 ### Contributions
 #### Feature extraction
-+ WC: RGB, HSV, LBP
-+ MG: SIFT
-+ JL: HOG
++ WC: red, green, and blue (RGB); hue, saturation, and value (HSV); local binary patterns (LBP)
++ MG: scale-invariant feature transform (SIFT)
++ JL: histogram of oriented gradients (HOG)
 + KL: rotation
 
 #### Machine learning models
