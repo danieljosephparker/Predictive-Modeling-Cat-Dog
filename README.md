@@ -11,10 +11,13 @@
 + 2,000 images labeled as cat or dog.
 + A baseline feature extraction using the scale-invariant feature transform (SIFT).
 + A baseline statistical machine learning model, a gradient boosting machine, trained on those SIFT features.
-#### To-do
-Produce a portable AI module that can predict whether a new image is a cat or a dog. 
+#### Deliverable
++ Produce a portable AI module that can predict whether a new image is a cat or a dog. 
 #### Spec
-Improve on the accuracy performance of the baseline model by exploring other feature extractions and other predictive models. Keep in mind computational costs of feature extraction, model training, and prediction time.
++ Improve on the accuracy performance of the baseline model.
++ Explore other feature extractions.
++ Explore other predictive models. 
++ Keep in mind computational costs of feature extraction, model training, and prediction time.
 
 ### Team Members
 Wanting Cheng, Mingkai Deng, Jiongjiong Li, Kai Li, and Daniel Parker
