@@ -10,13 +10,10 @@
 Wanting Cheng, Mingkai Deng, Jiongjiong Li, Kai Li, Daniel Parker
 
 ### File Structure
-`main.R` is the main file wrapper. It ties together all the project code. Located in `/doc/`.
-
-`feature.R` extracts features from an input image directory. Located in `/lib/`.
-
-`train.R` trains several statistical machine learning models, based on input feature data. Located in `/lib/`.
-
-`test.R` returns predictions of input test images.
+[`doc/main.R`](doc/main.R) is the main file wrapper. It ties together all the project code.
+[`lib/feature.R`](lib/feature.R) extracts features from an input image directory.
+[`lib/train.R`](lib/train.R) trains several statistical machine learning models, based on input feature data.
+[`lib/test.R`](lib/test.R) returns predictions of input test images.
 
 ### Contributions
 #### Feature extraction
@@ -38,8 +35,8 @@ Wanting Cheng, Mingkai Deng, Jiongjiong Li, Kai Li, Daniel Parker
 + KL: original `README.md` 
 + DP: edited and refactored code for personal GitHub version
 
-#### Project management, meeting organization, note-taking
-+ DP
+#### Project management
++ DP: scheduled meetings, took notes, guided project workflow
 
 #### Presentation slides
 + MD: contributed performance data
