@@ -1,4 +1,4 @@
-# Cat or Dog: Predictive Modelling and Computation Time Optimization
+# Cat or Dog: Prediction & Model Assessment
 
 ## Columbia University, Department of Statistics | STAT GU4243,  Applied Data Science | Spring, 2018
 
