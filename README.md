@@ -1,8 +1,6 @@
 # Cat or Dog: Predictive Modelling and Computation Time Optimization
 
-## Columbia University, Department of Statistics 
-## STAT GU4243 | Applied Data Science
-## Spring, 2018
+## Columbia University, Department of Statistics | STAT GU4243,  Applied Data Science | Spring, 2018
 
 ### [Project Presentation](doc/Presentation/ADS_P2_G6_Presentation.pdf)
 
@@ -22,32 +20,27 @@ Wanting Cheng, Mingkai Deng, Jiongjiong Li, Kai Li, Daniel Parker
 
 ### Contributions
 #### Feature extraction
-
-+WC: RGB, HSV, LBP
-+MG: SIFT
-+JL: HOG
-+KL: rotation
++ WC: RGB, HSV, LBP
++ MG: SIFT
++ JL: HOG
++ KL: rotation
 
 #### Machine learning models
-
-+WC: support vector machine
-+JL: gradient boosting machine, adaptive gradient boosting, extreme gradient boosting
-+KL: neural network
-+DP: random forests
++ WC: support vector machine
++ JL: gradient boosting machine, adaptive gradient boosting, extreme gradient boosting
++ KL: neural network
++ DP: random forests
 
 #### Project architecture and code finalization
-
-+WC: finalized all the scripts and compiled code
-+MD: precision-recall analysis
-+JL: randomized split of training data, for 
-+KL: original `README.md` 
-+DP: edited and refactored code for personal GitHub version
++ WC: finalized all the scripts and compiled code
++ MD: precision-recall analysis
++ JL: randomized split of training data, for 
++ KL: original `README.md` 
++ DP: edited and refactored code for personal GitHub version
 
 #### Project management, meeting organization, note-taking
-
-+DP
++ DP
 
 #### Presentation slides
-
-+MD: contributed performance data
-+DP: wrote entire presentation in LaTeX using `beamer` package
++ MD: contributed performance data
++ DP: wrote entire presentation in LaTeX using `beamer` package
