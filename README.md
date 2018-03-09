@@ -2,9 +2,9 @@
 
 ## Columbia University, Department of Statistics | STAT GU4243,  Applied Data Science | Spring, 2018
 
-### [Project Presentation](doc/Presentation/ADS_P2_G6_Presentation.pdf)
+### [Final Project Presentation](doc/Presentation/ADS_P2_G6_Presentation.pdf)
 
-### [Project Description](doc/project2_desc.md)
+### [Original Project Assignment](doc/project2_desc.md)
 
 ### Team Members
 Wanting Cheng, Mingkai Deng, Jiongjiong Li, Kai Li, Daniel Parker
