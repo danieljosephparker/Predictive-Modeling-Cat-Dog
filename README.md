@@ -4,7 +4,7 @@
 
 ## [Final Presentation](doc/Presentation/ADS_P2_G6_Presentation.pdf)
 
-## [Original Assignment](doc/project2_desc.md)
+## [Original Assignment](doc/Project_2_Description.md)
 
 ## Project summary
 ### Given 
