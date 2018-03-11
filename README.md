@@ -32,16 +32,16 @@ data/
 ### GitHub repository
 ```
 GitHub_project/
-├──README.md        # Summary & description.
-├──doc/             # Documentation.
-├────main.RMD       # Main project script. Ties together all the code, and accesses the purpose-specific scripts.
-├────Presentation/  # The .pdf, .tex, and other files for the final presentation.
-├──figs/            # Figures & graphics produced.
-├──lib/             # The project library, containing any purpose-specific scripts.
-├────feature.R      # Extracts features from an input image directory.
-├────train.R        # Trains several statistical machine learning models, based on input feature data.
-├────test.R         # Predicts labels for input test images.
-├──output/          # Contains objects generated as a result of running other code. E.g.: extracted features; trained models.
+├──README.md        # Summary & description
+├──doc/             # Documentation
+├────main.Rmd       # Main project script: ties together all the code; accesses purpose-specific scripts
+├────Presentation/  # .pdf, .tex, and other files for the final presentation
+├──figs/            # Figures & graphics
+├──lib/             # Library, containing all scripts
+├────feature.R      # Extracts features from an input image directory
+├────train.R        # Trains statistical machine learning models, based on input features
+├────test.R         # Predicts labels for input test images
+├──output/          # Objects generated as a result of running other code: extracted features, trained models, ...
 ```
 Particular files that might be interest to look at:
 
