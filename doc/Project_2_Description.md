@@ -1,14 +1,14 @@
-## STAT GU4243 Spring 2018 Applied Data Science
-### Project 2 Predictive Modelling - Model Evaluation and Selection
+## STAT GU4243 Spring 2018 Applied Data Science | Professor Cynthia Rush
+### Project 2 Predictive Modelling | Model Evaluation and Selection
 
-In this project, we will carry out **model evaluation and selection** for predictive analytics on image data. As data scientists, we often need to **evaluate** different modeling/analysis strategies and decide what is the best. Such decisions need to be supported by sound evidence in the form of *model assessment, validation and comparison*. In addition, we also need to **communicate our decision and supporting evidence** clearly and convincingly in an accessible fashion.
+In this project, we will carry out **model evaluation and selection** for predictive analytics on image data. As data scientists, we often need to **evaluate** different modeling/analysis strategies and decide what is the best. Such decisions need to be supported by sound evidence in the form of *model assessment, validation and comparison*. In addition, we also need to **communicate our decision and supporting evidence** clearly and convincingly, in an accessible fashion.
 
 #### Challenge
 For this project, you will receive a set of 4387 labeled images of cats and dogs originally constructed by [The Oxford-IIIT Pet Dataset](http://www.robots.ox.ac.uk/%7Evgg/data/pets/).  The training data can be found [here](https://drive.google.com/drive/folders/1vURJAO9fSZFy0vNXI0IdKdEBu7CJ0SiI?usp=sharing).
 
 Your client is interested in creating a mobile AI program that accurately distinguishes between pictures of dogs and cats. 
 
-The portability of this AI program (holding storage and memory cost) and the computational efficiency (test running time cost) are of great concern to your client. This translates to a balance between the complexity of variables/features/models used and the predictive performance. 
+The portability of this AI program (holding storage and memory cost) and the computational efficiency (test running time cost) are of great concern to your client. This translates to a balance between the complexity of variables/features/models used and the predictive performance.
 
 ![image](../figs/predictiveprogram.png)
 
@@ -17,7 +17,7 @@ Assume that the **current practice** on your client side is just using [boosted]
 #### Evaluation criteria 
 - Ease of reproducibility by the client (i.e. Cindy and Wenda for classroom purposes)
 	* Are the codes for the proposed methods annotated and documented well?
-	* Can the analysis be re-run nearly automatically using the project's `main.rmd`.
+	* Can the analysis be re-run nearly automatically using the project's `main.Rmd`.
 - Level of reproducibility
 	* Can client derive the same evaluation conclusion as presented in the team's final presentation?
 	* How close are the reported performances (presentation and online) to the reproduced performances?
@@ -74,16 +74,16 @@ Each team should organize the project repo on GitHub according to the structure 
 data/
 GitHub_proj/
 ├──doc/
-├────main.RMD
+├────main.Rmd
 ├──figs/
 ├──lib/
 ├──output/
 ├──README.md
 ```
 - The `data` folder currently contains example hand-written zipcode images for the starter codes. You should **remove** the zipcode data from your final repo.  The project data is too big for Github.  The project data is too big for Github and can be found [here](https://drive.google.com/drive/folders/1vURJAO9fSZFy0vNXI0IdKdEBu7CJ0SiI?usp=sharing).
-- The `doc` folder should have documentations for this project, presentation files and other supporting materials. You should have a final `main.RMD` following the template given in the starter codes. Your `main.RMD` can assume that there is a data folder of raw images outside the root with subfolders corresponding to the training set and the test set. 
+- The `doc` folder should have documentations for this project, presentation files and other supporting materials. You should have a final `main.Rmd` following the template given in the starter codes. Your `main.Rmd` can assume that there is a data folder of raw images outside the root with subfolders corresponding to the training set and the test set. 
 - The `figs` folder contains figure files produced during the project and running of the codes. 
-- (For R users) The `lib` folder contain R codes for the AI program. It should have the following files: `feature.R`, `train.R`, and `test.R`. The codes in the `lib` folder are not intended to be run directly but to be called from `main.RMD`. 
+- (For R users) The `lib` folder contain R codes for the AI program. It should have the following files: `feature.R`, `train.R`, and `test.R`. The codes in the `lib` folder are not intended to be run directly but to be called from `main.Rmd`. 
 - The `output` folder is the holding place for extracted features along with other intermediate and final results.
 
 The instructional team will download each team's GitHub repo and cross-examine each team's proposal for reproducibility on the current dataset and for reliability using a different dataset.
