@@ -1,41 +1,39 @@
-#############################################################
-### Construct visual features for training/testing images ###
-#############################################################
+################################################################
+### Extract visual features for input images                 ###
+### Authors: Wanting Cheng, Jiongjiong Li, and Daniel Parker ###
+################################################################
 
-### Authors: Wanting Cheng & Jiongjiong Li
-### Project 2
-### ADS Spring 2018
-
-feature <- function(img_dir, run.color = T, run.LBP = F, run.HOG = F, export=T){
+feature <- function(img_dir, 
+                    run.color = F,
+                    run.LBP = F,
+                    run.HOG = F,
+                    export = F){
   
-  ### Construct process features for training/testing images
-  ### Sample simple feature: Extract row average raw pixel values as features
+# Extract visual features for input images
+# Sample simple feature: extract row average raw pixel values as features
   
-  ### Input: a directory that contains images ready for processing
-  ### Output: an .RData file contains processed features for the images: 
-  ###         1.Color features (RGB and HSV features, 2000*2001 dataframe), 
-  ###         2. Gray features (LBP feature, 2000*31 dataframe)
+# Input: a directory that contains images ready for processing
+#   In this project, the number of training images was 2000,
+#   and the number of test images was 1850.
   
+# Output: an .RData file of extracted image features: 
+#   1. Color features: red, green, blue (RGB) and hue, saturation, and value (HSV)
+#   2. Gray features: local binary patterns (LBP)
+#   3. Histogram of oriented gradients (HOG)
   
-  ### load libraries
-  library("EBImage")
-  library(reticulate)
-  library("wvtool")
-  library("plyr")
+  # Load libraries
+  require("EBImage")
+  require("plyr")
+  require(reticulate)
+  require("wvtool")
   cv2 <- reticulate::import('cv2')
   
-  if(run.color){
-    color <- color_feature_extraction(img_dir, export = T)
-  }
-  if(run.LBP){
-    LBP <- LBP_feature_extraction(img_dir, export = T)
-  }
-  if(run.HOG){
-    HOG <- HOG_feature_extraction(img_dir, export = T)
-  }
+  if(run.color){color <- color_extract(img_dir, export = T)}
+  if(run.LBP){LBP <- LBP_extract(img_dir, export = T)}
+  if(run.HOG){HOG <- HOG_extract(img_dir, export = T)}
 }
 
-color_feature_extraction <- function(img_dir, export = T){
+color_extract <- function(img_dir, export = T){
   
   ### Takes about 7min in total
   
@@ -94,25 +92,15 @@ color_feature_extraction <- function(img_dir, export = T){
     }
     close(pb)
     color_features <- join(RGB, HSV)
-    ### output constructed features
-    if(export){
-      save(color_features, file = "../output/train_feature_color.RData")
-    }
-    return(color_features)
     
+    # Save extracted features to output directory
+    if(export){save(color_features, file = "../output/train_feature_color.RData")}
+    
+    # Return main dataframe
+    return(color_features)
 }
 
-LBP_feature_extraction <- function(img_dir, export = T){
-  ### load libraries
-  if(!suppressWarnings(require('wvtool')))
-  {
-    install.packages('wvtool')
-    require('wvtool')
-  }
-  library("EBImage")
-  library(reticulate)
-  library("wvtool")
-  cv2 <- reticulate::import('cv2')
+LBP_extract <- function(img_dir, export = T){
   
   ### Takes about 20min in total
   
@@ -149,57 +137,65 @@ LBP_feature_extraction <- function(img_dir, export = T){
   }
   close(pb)
 
-  ### output constructed features
-  if(export){
-    save(LBP, file = "../output/train_feature_LBP.RData")
-  }
+  # Save extracted features to output directory
+  if(export){save(LBP, file = "../output/train_feature_LBP.RData")}
+
+  # Return main dataframe
   return(LBP)
-  
 }
 
 
-HOG_feature_extraction<- function(img_dir, export=T){
+HOG_extract <- function(img_dir, export = T){
   
-  ### Construct process features for training/testing images
-  ### Sample simple feature: Extract HOG values as features
+  # Set HOG parameters
+  # Resize images
+  winSize <- tuple(64,64)
+  # Size of one block
+  blockSize <- tuple(16,16)
+  # Length everytime block moves
+  blockStride <- tuple(8,8)
+  # Size of one cell
+  cellSize <- tuple(8,8)
+  # Number of orientations
+  nbins = 9
   
-  ### Input: a directory that contains images ready for processing
-  ### Output: an .RData file contains processed features for the images
+  # Initialize HOG Descriptor
+  HOG_desc = cv2$HOGDescriptor(winSize,
+                          blockSize,
+                          blockStride,
+                          cellSize,
+                          nbins)
   
-  ### load libraries
+  # Determine total number of input image files
+  n_files <- length(list.files(img_dir))
   
-  library("reticulate")
-  cv2 <- reticulate::import('cv2') # import cv2
-  library("EBImage")
+  # Reproduce names of input images
+  pet_names <- paste("pet", 1:n_files, ".jpg", sep = "")
   
-  winSize <- tuple(64L,64L) # resize the image
-  blockSize <- tuple(16L,16L) #size of one block
-  blockStride <- tuple(8L,8L) # length everytime block moves
-  cellSize <- tuple(8L,8L) # size of one cell
-  nbins = 9L # 9 orientations
-  hog = cv2$HOGDescriptor(winSize,blockSize,blockStride,cellSize,nbins)
+  # Calculate HOG values and store them
   
-  n_files <- length(list.files(img_dir)) # number of total image files
-  n_names <- paste0( "pet", 1:n_files, ".jpg")
-
-  
-  ### calculate HOG values and store them
-  HOG <- data.frame(matrix(NA, n_files, ncol=1765))
+  # Initialize empty dataframe with n_files rows and 1765 columns
+  HOG <- data.frame(matrix(NA, n_files, ncol = 1765))
+  # Set up column names according to the 1764 HOG features
   colnames(HOG) <- c("Image", paste("HOG_", 1:1764, sep = ""))
-  HOG$Image <- n_names
-  for(i in 1:n_files){
-    img <- cv2$imread(paste0(img_dir, "pet", i, ".jpg"))/255  # read in the images
-    img_resized <- cv2$resize(img, dsize=tuple(64L, 64L)) # resize the graph
-    hog_values <- hog$compute(np_array(img_resized * 255, dtype='uint8')) # compute the HOG calues
-    HOG[i,2:1765] <- hog_values
-
-  }
-
-  ### output constructed features
-  if(export){
-    save(HOG, file = paste0("../output/feature_HOG", ".RData"))
-  }
-  return(HOG)
+  # Set up initial column of preserved file names
+  HOG$Image <- pet_names
   
+  for(i in 1:n_files){
+    # Read in the image
+    img <- cv2$imread(paste(img_dir, "pet", i, ".jpg", sep = ""))/255
+    # Resize the graph
+    img_resized <- cv2$resize(img, dsize = tuple(64, 64))
+    # Compute HOG values
+    HOG_val <- HOG_desc$compute(np_array(img_resized * 255, dtype='uint8'))
+    # Input into appropriate row of main dataframe
+    HOG[i,2:1765] <- HOG_val
+  }
+
+  # Save extracted features to output directory
+  if(export){save(HOG, file = paste("../output/feature_HOG", ".RData", sep = ""))}
+  
+  # Return main dataframe
+  return(HOG)
 }
 
