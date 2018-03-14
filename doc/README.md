@@ -1,18 +1,13 @@
-# Project 1: 
-### Doc folder
+# Documentation Folder
 
-The doc contains the main.Rmd file which wraps all the function used in this project. 
+`main.Rmd` is the main project script. It ties together all the code and accesses purpose-specific scripts. It has the following structure:
 
-The main.Rmd file following structure:
+1. Set up working directories and file paths.
 
-Load the direction: modify the location see the comments
+2. Set up experimental controls for feature extraction. For example, `run.sift <- T` performs SIFT feature extraction, and `run.sift <- F` means not to.
 
-Set the control TRUE or FALSE for each model used and feature extraction. Such as run.sift <- T means run sift feature extraction and F means not run this code. 
+3. Set up experimental controls for model training, with the same structure as the preceding.
 
-Construct visual features: features extraction is controlled by T of F for each feature extraction function. 
+4. Make predictions: generate predicted labels for test data using trained models. Confusion matrices are also generated.
 
-Train a classification model: model also is controlled by run.model <- T or F. Run one model each time. 
-
-Make predictions: run the prediction, and the confusion matrix is used for testing
-
-Summarize running time: calculate running time for training etc.
+5. Summarize running time for the preceding steps.
