@@ -1,2 +1,4 @@
 load("/Users/djparker/Documents/GitHub/project-2-predictive-modelling-group-6/output/sift_features_k3.RData")
 load("/Users/djparker/Documents/GitHub/project-2-predictive-modelling-group-6/output/NN_model.Rdata")
+load("/Users/djparker/Documents/GitHub/Predictive-Modeling-Cat-Dog/output/train_feature_LBP_time.RData")
+load("/Users/djparker/Documents/GitHub/Predictive-Modeling-Cat-Dog/output/train_feature_HOG_time.RData")

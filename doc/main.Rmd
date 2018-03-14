@@ -6,10 +6,6 @@ output:
   pdf_document: default
   html_document: default
 ---
-In your final Project 2 repo, there should be an R markdown file called `main.Rmd` that organizes **all computational steps** for evaluating your proposed image classification framework. 
-
-This file is meant to be a template for evaluating models used for image analysis (and could be generalized for any predictive modeling). You should update it according to your models/codes but your final document should have precisely the same structure. 
-
 ```{r, warning = FALSE}
 if(!require("EBImage")){
   source("https://bioconductor.org/biocLite.R")
@@ -88,7 +84,7 @@ For this simple example, we use the row averages of raw pixel values as the visu
 + Caution: please name the feature data as 'train_data' and 'test_data'
 
 ```{r feature}
-source("../lib/feature.R")
+source("/Users/djparker/Documents/GitHub/Predictive-Modeling-Cat-Dog/lib/feature.R")
 
 tm_feature_train <- NA
 if(run.feature.train){
