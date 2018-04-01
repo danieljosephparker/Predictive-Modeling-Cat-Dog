@@ -1,5 +1,3 @@
-# Project 1: 
-### Doc folder
 
 The doc contains the main.Rmd file, which wraps together all the functions and other code used in this project. It has the following structure:
 
