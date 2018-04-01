@@ -1,18 +1,18 @@
 # Project 1: 
 ### Doc folder
 
-The doc contains the main.Rmd file which wraps all the function used in this project. 
+The doc contains the main.Rmd file, which wraps together all the functions and other code used in this project. It has the following structure:
 
-The main.Rmd file following structure:
+1. Load the directory of image data. Modify according to where it's stored on the computer of the user reproducing the results.
 
-Load the direction: modify the location see the comments
+2. Set control variables to TRUE or FALSE to determine whether feature extraction and model training are executed. For example, `run.sift <- T` means SIFT feature extraction is performed, and F means it is not. 
 
-Set the control TRUE or FALSE for each model used and feature extraction. Such as run.sift <- T means run sift feature extraction and F means not run this code. 
+3. Execute feature extraction, if TRUE.
 
-Construct visual features: features extraction is controlled by T of F for each feature extraction function. 
+4. Train models, if TRUE.
 
-Train a classification model: model also is controlled by run.model <- T or F. Run one model each time. 
+5. Model selection: optimize model parameters.
 
-Make predictions: run the prediction, and the confusion matrix is used for testing
+6. Generate predictions and confusion matrices.
 
-Summarize running time: calculate running time for training etc.
+7. Summarize running time, to aid in model evaluation.

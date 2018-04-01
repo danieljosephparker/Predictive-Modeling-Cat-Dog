@@ -1,11 +1,12 @@
 ---
 title: "Project 2"
 author: "Group 6"
-date: "March 3, 2018"
+date: "March 13, 2018"
 output:
   pdf_document: default
   html_document: default
 ---
+
 ```{r, warning = FALSE}
 if(!require("EBImage")){
   source("https://bioconductor.org/biocLite.R")
@@ -22,19 +23,23 @@ library("gbm")
 
 ### Step 0: Specify directories.
 
-We first set the working directory to the location of this .Rmd file  (it should be in a project folder). Then we specify our training and testing data. If you do not have an independent test set, you need to create your own testing data by random subsampling from the training data (we haven't done this here), and in order to obain reproducible results, you should use `set.seed()` whenever randomization is used. 
-
-```{r wkdir, eval=FALSE}
-# setwd("Spring2018/Project_Starter_Codes/Project2-PredictiveModelling/doc") 
-# Replace the above with your own path or manually set it in RStudio to where this rmd file is located. 
+Set the working directory to the location of this `.Rmd` file. 
+```{r}
+# This is synced with the online GitHub repository through GitHub Desktop.
+setwd("/Users/djparker/Documents/GitHub/Predictive-Modeling-Cat-Dog/doc")
 ```
 
-Now we provide directories for teh raw images. Here we assume the training set and test set are in different subfolders. 
+Specify directories for the raw image training and test data. These cannot be included in the GitHub respository because the data are too large.
 ```{r}
-experiment_dir <- "/Users/wcheng/Desktop/project-2-/" # Modify this to where the pet images are located
-img_train_dir  <- paste(experiment_dir, "data/train/", sep="")
-img_test_dir   <- paste(experiment_dir, "data/test/", sep="")
+project_dir <- "/Users/djparker/Documents/Temp/Juilliard/Spring\ 2018/ADS_STAT_4243/Project_2/"
+img_train_dir  <- paste(project_dir, "train/", sep="")
+img_test_dir   <- paste(project_dir, "test/", sep="")
+```
+
+Specify directories for professor-provided SIFT features. These are also too large for the GitHub repository.
+```{r}
 sift_dir <- paste(experiment_dir,"data/train-features", sep = "")
+# Fix this next!
 ```
 
 ### Step 1: Set up controls for model evaluation.
@@ -66,8 +71,6 @@ run.SVM = F
 
 
 ### Step 2: Import training images class labels.
-
-
 
 ```{r train_label}
 load("../data/split_data/train/train_label.Rdata")
